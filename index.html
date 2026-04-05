@@ -78,19 +78,29 @@
       padding: 0 24px 32px;
       border-bottom: 1px solid var(--border);
     }
+    .nav-brand .nav-photo-wrap {
+      margin-bottom: 14px;
+    }
+    .nav-brand .nav-photo {
+      width: 76px;
+      height: 76px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      display: block;
+    }
     .nav-brand .initials {
-      width: 48px;
-      height: 48px;
+      width: 76px;
+      height: 76px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-radius: 10px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--display);
       font-weight: 800;
-      font-size: 18px;
+      font-size: 22px;
       color: var(--bg);
-      margin-bottom: 12px;
     }
     .nav-brand h2 {
       font-family: var(--display);
@@ -200,7 +210,7 @@
 
     #hero h1 {
       font-family: var(--display);
-      font-size: clamp(28px, 3.5vw, 48px);
+      font-size: clamp(24px, 3vw, 42px);
       font-weight: 800;
       line-height: 1.1;
       color: var(--white);
@@ -747,10 +757,10 @@
       50% { opacity: 0; }
     }
 
-    .fade-up { animation: fadeUp 0.6s ease forwards; }
-    .fade-up-2 { animation: fadeUp 0.6s 0.15s ease both; }
-    .fade-up-3 { animation: fadeUp 0.6s 0.3s ease both; }
-    .fade-up-4 { animation: fadeUp 0.6s 0.45s ease both; }
+    .fade-up  { animation: fadeUp 0.5s 0.05s ease both; }
+    .fade-up-2 { animation: fadeUp 0.5s 0.18s ease both; }
+    .fade-up-3 { animation: fadeUp 0.5s 0.32s ease both; }
+    .fade-up-4 { animation: fadeUp 0.5s 0.46s ease both; }
 
     .cursor {
       display: inline-block;
@@ -781,7 +791,12 @@
 <!-- SIDE NAVIGATION -->
 <nav id="sidenav">
   <div class="nav-brand">
-    <div class="initials">MMT</div>
+    <div class="nav-photo-wrap">
+      <img src="assets/img/Myat Moe Profile.jpeg" alt="Myat Moe Thwin"
+           class="nav-photo"
+           onerror="this.style.display='none'; document.getElementById('nav-initials').style.display='flex';">
+      <div class="initials" id="nav-initials" style="display:none;">MMT</div>
+    </div>
     <h2>Myat Moe Thwin</h2>
     <p>Sr. Systems Admin, APAC</p>
   </div>
@@ -1456,7 +1471,7 @@
           <div class="contact-icon">✉</div>
           <div>
             <h4>Email</h4>
-            <a href="/cdn-cgi/l/email-protection#e98490889d84868cdbdea98e84888085c78a8684"><span class="__cf_email__" data-cfemail="84e9fde5f0e9ebe1b6b3c4e3e9e5ede8aae7ebe9">[email&#160;protected]</span></a>
+            <a href="mailto:myatmoe27@gmail.com">myatmoe27@gmail.com</a>
           </div>
         </div>
         <div class="contact-item">
@@ -1488,13 +1503,13 @@
           <h4>Mr. Thomas Gregory</h4>
           <div class="r-role">Officer-in-Charge — SERIP Project</div>
           <div class="r-org">United Nations Development Programme (UNDP), Myanmar</div>
-          <a href="/cdn-cgi/l/email-protection#7d091512101c0e531a0f181a120f043d0813190d53120f1a"><span class="__cf_email__" data-cfemail="e5918d8a888496cb829780828a979ca5908b8195cb8a9782">[email&#160;protected]</span></a>
+          <a href="mailto:thomas.gregory@undp.org">thomas.gregory@undp.org</a>
         </div>
         <div class="referee-card">
           <h4>Mr. Aung Phyo Wai</h4>
           <div class="r-role">Assistant IT Manager, APAC</div>
           <div class="r-org">Bridge Data Centres International Pte Ltd</div>
-          <a href="/cdn-cgi/l/email-protection#3a5b4f545d4a524355144d5b537a5848535e5d5f5e5b4e5b595f544e485f4914595557"><span class="__cf_email__" data-cfemail="1677637871667e6f793861777f5674647f72717372776277757378626473653875797b">[email&#160;protected]</span></a>
+          <a href="mailto:aungphyo.wai@bridgedatacentres.com">aungphyo.wai@bridgedatacentres.com</a>
         </div>
       </div>
     </div>
@@ -1511,7 +1526,7 @@
   </span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Smooth scroll + active nav highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('#sidenav .nav-links a');
