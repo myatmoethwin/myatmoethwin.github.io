@@ -200,10 +200,11 @@
 
     #hero h1 {
       font-family: var(--display);
-      font-size: clamp(44px, 5vw, 72px);
+      font-size: clamp(28px, 3.5vw, 48px);
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.1;
       color: var(--white);
+      white-space: nowrap;
       margin-bottom: 20px;
     }
 
@@ -824,7 +825,7 @@
     <div class="hero-glow2"></div>
     <div class="hero-content">
       <div class="hero-tag fade-up">SENIOR SYSTEMS ADMINISTRATOR · APAC</div>
-      <h1 class="fade-up-2">Myat Moe<br><span>Thwin</span></h1>
+      <h1 class="fade-up-2">Myat Moe <span>Thwin</span></h1>
       <div class="hero-role fade-up-3">$ datacenter.operations --region APAC --years 15+<span class="cursor"></span></div>
       <p class="summary fade-up-3">
         Experienced IT System Administrator with over 15 years of expertise in managing and supporting business-critical systems across APAC. Specialising in data centre infrastructure, VMware, NetApp, Microsoft 365, and enterprise cloud platforms.
@@ -874,32 +875,7 @@
         <p>
           Previously delivered infrastructure projects at Bridge Data Centres, UNDP Myanmar, Myanma Economic Bank, and Hewlett Packard — spanning government eGovernment platforms, national data centre builds, and enterprise managed services.
         </p>
-        <div class="about-details">
-          <div class="detail-row">
-            <span class="lbl">Location</span>
-            <span class="val">Singapore</span>
-          </div>
-          <div class="detail-row">
-            <span class="lbl">Phone</span>
-            <span class="val">+65 9180 4329</span>
-          </div>
-          <div class="detail-row">
-            <span class="lbl">Email</span>
-            <span class="val"><a href="mailto:myatmoe27@gmail.com">myatmoe27@gmail.com</a></span>
-          </div>
-          <div class="detail-row">
-            <span class="lbl">LinkedIn</span>
-            <span class="val"><a href="https://www.linkedin.com/in/myatmoe" target="_blank">linkedin.com/in/myatmoe</a></span>
-          </div>
-          <div class="detail-row">
-            <span class="lbl">Website</span>
-            <span class="val"><a href="https://resume.myatmoe.info" target="_blank">resume.myatmoe.info</a></span>
-          </div>
-          <div class="detail-row">
-            <span class="lbl">Nationality</span>
-            <span class="val">Myanmar</span>
-          </div>
-        </div>
+
       </div>
 
       <div>
@@ -1480,7 +1456,7 @@
           <div class="contact-icon">✉</div>
           <div>
             <h4>Email</h4>
-            <a href="mailto:myatmoe27@gmail.com">myatmoe27@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#e98490889d84868cdbdea98e84888085c78a8684"><span class="__cf_email__" data-cfemail="84e9fde5f0e9ebe1b6b3c4e3e9e5ede8aae7ebe9">[email&#160;protected]</span></a>
           </div>
         </div>
         <div class="contact-item">
@@ -1512,13 +1488,13 @@
           <h4>Mr. Thomas Gregory</h4>
           <div class="r-role">Officer-in-Charge — SERIP Project</div>
           <div class="r-org">United Nations Development Programme (UNDP), Myanmar</div>
-          <a href="mailto:thomas.gregory@undp.org">thomas.gregory@undp.org</a>
+          <a href="/cdn-cgi/l/email-protection#7d091512101c0e531a0f181a120f043d0813190d53120f1a"><span class="__cf_email__" data-cfemail="e5918d8a888496cb829780828a979ca5908b8195cb8a9782">[email&#160;protected]</span></a>
         </div>
         <div class="referee-card">
           <h4>Mr. Aung Phyo Wai</h4>
           <div class="r-role">Assistant IT Manager, APAC</div>
           <div class="r-org">Bridge Data Centres International Pte Ltd</div>
-          <a href="mailto:aungphyo.wai@bridgedatacentres.com">aungphyo.wai@bridgedatacentres.com</a>
+          <a href="/cdn-cgi/l/email-protection#3a5b4f545d4a524355144d5b537a5848535e5d5f5e5b4e5b595f544e485f4914595557"><span class="__cf_email__" data-cfemail="1677637871667e6f793861777f5674647f72717372776277757378626473653875797b">[email&#160;protected]</span></a>
         </div>
       </div>
     </div>
@@ -1535,7 +1511,7 @@
   </span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Smooth scroll + active nav highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('#sidenav .nav-links a');
@@ -1566,27 +1542,4 @@
   reveals.forEach(r => revealObs.observe(r));
 
   // Close mobile nav on link click
-  navLinks.forEach(a => {
-    a.addEventListener('click', () => {
-      document.getElementById('sidenav').classList.remove('open');
-    });
-  });
-
-  // Skill bar animation on visible
-  const skillFills = document.querySelectorAll('.skill-fill');
-  skillFills.forEach(fill => {
-    const target = fill.style.width;
-    fill.style.width = '0%';
-    const skillObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          setTimeout(() => { fill.style.width = target; }, 200);
-          skillObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    skillObs.observe(fill.parentElement);
-  });
-</script>
-</body>
-</html>
+  navLi
