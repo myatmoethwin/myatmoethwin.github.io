@@ -723,27 +723,104 @@
     }
 
     /* ── RESPONSIVE ── */
+    /* ── TABLET (≤1024px) ── */
     @media (max-width: 1024px) {
       #sidenav { width: 200px; }
       #main { margin-left: 200px; }
       footer { margin-left: 200px; }
-      section { padding: 60px 40px; }
+      section { padding: 60px 36px; max-width: 100%; }
+      #hero { padding: 60px 36px 48px; }
       .comp-grid { grid-template-columns: 1fr 1fr; }
+      .proj-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 28px; }
     }
 
+    /* ── MOBILE (≤768px) ── */
     @media (max-width: 768px) {
-      #nav-toggle { display: block; }
-      #sidenav { transform: translateX(-100%); transition: transform 0.3s; }
-      #sidenav.open { transform: translateX(0); }
+      /* Nav */
+      #nav-toggle { display: flex; align-items: center; justify-content: center; }
+      #sidenav {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        width: 260px;
+        z-index: 300;
+      }
+      #sidenav.open { transform: translateX(0); box-shadow: 4px 0 24px rgba(0,0,0,0.5); }
+
+      /* Overlay when nav open */
+      #nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 200;
+      }
+      #nav-overlay.visible { display: block; }
+
+      /* Main layout */
       #main { margin-left: 0; }
-      footer { margin-left: 0; padding: 20px 24px; flex-direction: column; gap: 8px; }
-      section { padding: 60px 24px; }
-      #hero { padding: 60px 24px 48px; }
-      .hero-stats { gap: 24px; }
-      .about-grid, .skill-group-grid, .proj-grid, .contact-grid { grid-template-columns: 1fr; }
-      .comp-grid { grid-template-columns: 1fr; }
-      .tl-header { flex-direction: column; }
+      footer { margin-left: 0; padding: 20px 20px; flex-direction: column; gap: 6px; text-align: center; }
+
+      /* Sections */
+      section { padding: 48px 20px; max-width: 100%; }
+      #hero { padding: 56px 20px 40px; }
+
+      /* Hero */
+      #hero h1 { font-size: clamp(22px, 7vw, 36px); white-space: normal; }
+      .hero-tag { font-size: 10px; }
+      .hero-role { font-size: 12px; word-break: break-all; }
+      #hero p.summary { font-size: 14px; }
+      .hero-stats { gap: 16px; flex-wrap: wrap; }
+      .stat-num { font-size: 24px; }
+      .stat-label { font-size: 10px; }
+      .hero-actions { flex-direction: column; gap: 10px; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; padding: 12px 16px; }
+
+      /* Section headers */
+      .sec-header h2 { font-size: 22px; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .comp-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .comp-card { padding: 14px; }
+      .comp-card ul li { font-size: 11.5px; }
+
+      /* Skills */
+      .skill-group-grid { grid-template-columns: 1fr; gap: 24px; }
+
+      /* Experience */
+      .tl-header { flex-direction: column; gap: 6px; }
+      .tl-role { font-size: 15px; }
+      .tl-item { padding-left: 22px; margin-bottom: 36px; }
+
+      /* Certs table */
+      .cert-table th:last-child,
       .cert-table td:last-child { display: none; }
+      .cert-table td { font-size: 12px; padding: 10px 8px 10px 0; }
+      .cert-badge { display: none; }
+
+      /* Projects */
+      .proj-grid { grid-template-columns: 1fr; gap: 14px; }
+      .proj-card { padding: 18px; }
+
+      /* Contact */
+      .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    /* ── SMALL PHONES (≤480px) ── */
+    @media (max-width: 480px) {
+      section { padding: 40px 16px; }
+      #hero { padding: 48px 16px 36px; }
+      #hero h1 { font-size: clamp(20px, 8vw, 30px); }
+      .hero-stats { gap: 12px; }
+      .stat-num { font-size: 20px; }
+      .comp-grid { grid-template-columns: 1fr; }
+      .tl-tags { gap: 4px; }
+      .tl-tag { font-size: 10px; }
+      .tech-tags { gap: 6px; }
+      .tech-tag { font-size: 10px; padding: 3px 8px; }
+      .cert-table td:nth-child(2) { font-size: 11px; }
+      footer { font-size: 11px; }
     }
 
     /* ── ANIMATIONS ── */
@@ -789,7 +866,8 @@
 </head>
 <body>
 
-<button id="nav-toggle" onclick="document.getElementById('sidenav').classList.toggle('open')">☰</button>
+<button id="nav-toggle" onclick="toggleNav()">☰</button>
+<div id="nav-overlay" onclick="closeNav()"></div>
 
 <!-- SIDE NAVIGATION -->
 <nav id="sidenav">
@@ -1474,7 +1552,7 @@
           <div class="contact-icon">✉</div>
           <div>
             <h4>Email</h4>
-            <a href="mailto:myatmoe27@gmail.com">myatmoe27@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#04697d6570696b613633446369656d682a676b69"><span class="__cf_email__" data-cfemail="c4a9bda5b0a9aba1f6f384a3a9a5ada8eaa7aba9">[email&#160;protected]</span></a>
           </div>
         </div>
         <div class="contact-item">
@@ -1506,13 +1584,13 @@
           <h4>Mr. Thomas Gregory</h4>
           <div class="r-role">Officer-in-Charge — SERIP Project</div>
           <div class="r-org">United Nations Development Programme (UNDP), Myanmar</div>
-          <a href="mailto:thomas.gregory@undp.org">thomas.gregory@undp.org</a>
+          <a href="/cdn-cgi/l/email-protection#1b6f7374767a68357c697e7c7469625b6e757f6b3574697c"><span class="__cf_email__" data-cfemail="087c606765697b266f7a6d6f677a71487d666c7826677a6f">[email&#160;protected]</span></a>
         </div>
         <div class="referee-card">
           <h4>Mr. Aung Phyo Wai</h4>
           <div class="r-role">Assistant IT Manager, APAC</div>
           <div class="r-org">Bridge Data Centres International Pte Ltd</div>
-          <a href="mailto:aungphyo.wai@bridgedatacentres.com">aungphyo.wai@bridgedatacentres.com</a>
+          <a href="/cdn-cgi/l/email-protection#f8998d969f88908197d68f9991b89a8a919c9f9d9c998c999b9d968c8a9d8bd69b9795"><span class="__cf_email__" data-cfemail="9bfaeef5fcebf3e2f4b5ecfaf2dbf9e9f2fffcfefffaeffaf8fef5efe9fee8b5f8f4f6">[email&#160;protected]</span></a>
         </div>
       </div>
     </div>
@@ -1579,7 +1657,20 @@
     });
   });
 
-  // Skill bar animation on visible
+  // Nav toggle with overlay
+  function toggleNav() {
+    const nav = document.getElementById('sidenav');
+    const overlay = document.getElementById('nav-overlay');
+    nav.classList.toggle('open');
+    overlay.classList.toggle('visible');
+  }
+  function closeNav() {
+    document.getElementById('sidenav').classList.remove('open');
+    const overlay = document.getElementById('nav-overlay');
+    if (overlay) overlay.classList.remove('visible');
+  }
+
+  // Skill bar animation on scroll
   const skillFills = document.querySelectorAll('.skill-fill');
   skillFills.forEach(fill => {
     const target = fill.style.width;
